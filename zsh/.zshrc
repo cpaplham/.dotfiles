@@ -15,6 +15,7 @@ function __config_oh_my_zsh {
     ZSH_CUSTOM="${HOME}/.oh-my-zsh-custom"
 
     CASE_SENSITIVE='false'
+    DISABLE_AUTO_TITLE='true'
     DISABLE_AUTO_UPDATE='true'
     DISABLE_UNTRACKED_FILES_DIRTY='true'
     ENABLE_CORRECTION='true'
