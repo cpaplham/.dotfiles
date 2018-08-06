@@ -4,6 +4,7 @@
 
 
 export EDITOR='nvim'
+export PAGER='less -XF'
 
 export PATH="${HOME}/.bin:${PATH}"
 if [[ -f '/usr/local/bin/brew' ]]; then
