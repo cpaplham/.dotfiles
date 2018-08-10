@@ -18,7 +18,6 @@ function __config_oh_my_zsh {
     DISABLE_AUTO_TITLE='true'
     DISABLE_AUTO_UPDATE='true'
     DISABLE_UNTRACKED_FILES_DIRTY='true'
-    ENABLE_CORRECTION='true'
     HYPHEN_INSENSITIVE='true'
     KEYTIMEOUT=1
     ZSH_DISABLE_COMPFIX='true'
