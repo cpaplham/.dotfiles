@@ -23,7 +23,7 @@ function __config_oh_my_zsh {
     ZSH_DISABLE_COMPFIX='true'
     ZSH_DISABLE_COMPINIT='true'
 
-    if [[ -n "$EMACS" ]]; then
+    if [[ -n "${EMACS}" ]]; then
         ZSH_THEME='philips'
     else
         ZSH_THEME='powerlevel9k/powerlevel9k'
@@ -85,8 +85,8 @@ function __config_environ {
 
 function __config_private {
     local ZSHRC_PRIVATE="${HOME}/.zshrc-private"
-    if [[ -f "$ZSHRC_PRIVATE" ]]; then
-        source "$ZSHRC_PRIVATE"
+    if [[ -f "${ZSHRC_PRIVATE}" ]]; then
+        source "${ZSHRC_PRIVATE}"
     fi
 }
 
