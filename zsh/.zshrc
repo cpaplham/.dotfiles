@@ -3,14 +3,14 @@
 # Primary entry point for interactive shell invocation.
 
 
-function __config_zsh {
+function {  # __config_zsh
     setopt NO_BEEP
 
     bindkey '^[[A' up-line-or-beginning-search
     bindkey '^[[B' down-line-or-beginning-search
 }
 
-function __config_oh_my_zsh {
+function {  # __config_oh_my_zsh
     ZSH="${HOME}/.oh-my-zsh"
     ZSH_CUSTOM="${HOME}/.oh-my-zsh-custom"
 
@@ -66,7 +66,7 @@ function __config_oh_my_zsh {
     source "${ZSH}/oh-my-zsh.sh"
 }
 
-function __config_alias {
+function {  # __config_alias
     alias lsvirtualenv='lsvirtualenv -b'
     alias p='parallel --will-cite'
     alias parallel='parallel --will-cite'
@@ -76,22 +76,17 @@ function __config_alias {
     alias vimdiff='nvim -d'
 }
 
-function __config_environ {
+function {  # __config_environ
     # NOTE: Most environment configuration should be located in .zshenv -- this
     # function is solely for setting those environment variables specific to
     # TTYs.
     export TERM='xterm-256color'
 }
 
-function __config_private {
+function {  # __config_private
     local ZSHRC_PRIVATE="${HOME}/.zshrc-private"
     if [[ -f "${ZSHRC_PRIVATE}" ]]; then
         source "${ZSHRC_PRIVATE}"
     fi
 }
 
-__config_zsh
-__config_oh_my_zsh
-__config_alias
-__config_environ
-__config_private
