@@ -20,3 +20,9 @@ function {
         source "${ZSHENV_PRIVATE}"
     fi
 }
+
+case $OSTYPE in
+    darwin*)
+        export HOMEBREW_NO_AUTO_UPDATE=1
+        ;;
+esac
