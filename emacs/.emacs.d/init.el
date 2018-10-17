@@ -123,6 +123,37 @@
 (use-package free-keys
   :defer t)
 
+(use-package general
+  :after (avy evil)
+  :config
+  (general-define-key "s-u" 'revert-buffer
+                      "s-a" 'mark-whole-buffer
+                      "s-s" 'save-buffer
+                      "s-z" 'undo-tree-undo
+                      "s-Z" 'undo-tree-redo
+                      "s-x" 'kill-region
+                      "s-c" 'kill-ring-save
+                      "s-v" 'yank)
+  (general-define-key :states 'motion
+                      :keymaps 'override
+                      :prefix "SPC"
+                      :non-normal-prefix "M-SPC"
+                      "" nil
+                      "e" 'eshell
+                      "d" 'diff-buffer-with-file
+                      "D" (lambda ()
+                            (interactive)
+                            (diff-buffer-with-file (current-buffer)))
+                      "k" 'kill-buffer
+                      "K" 'kill-current-buffer
+                      "c" 'cd
+                      "b" 'switch-to-buffer
+                      "n" 'neotree-toggle
+                      "N" 'neotree-refresh
+                      "SPC" 'fiplr-find-file)
+  (general-define-key :states '(normal operator visual motion)
+                      "s" 'avy-goto-char-timer))
+
 (use-package irony
   :config
   (add-hook 'c++-mode-hook 'irony-mode)
@@ -137,7 +168,11 @@
 (use-package neotree
   :defer t
   :config
-  (setq neo-theme 'ascii))
+  (setq neo-theme 'ascii)
+  (general-define-key :states 'motion
+                      :keymaps 'neotree-mode-map
+                      "RET" 'neotree-enter
+                      "TAB" 'neotree-quick-look))
 
 (use-package org
   :defer t
