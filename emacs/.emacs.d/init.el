@@ -57,9 +57,9 @@
 
 (require 'package)
 (setq package-enable-at-startup nil
-      package-archive-contents '(("gnu" . "http://elpa.gnu.org/packages/")
-                                 ("melpa" . "http://melpa.org/packages/")
-                                 ("orgmode" . "https://orgmode.org/elpa/")))
+      package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
+                         ("orgmode" . "https://orgmode.org/elpa/")))
 (package-initialize)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
