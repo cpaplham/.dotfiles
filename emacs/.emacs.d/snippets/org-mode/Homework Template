@@ -1,0 +1,31 @@
+# -*- mode: snippet -*-
+# name: Homework Template
+# key: <hw
+# --
+#+TITLE: ${1:Class}: ${2:Assignment}
+#+AUTHOR: Christopher Paplham
+#+EMAIL: cpaplham@uci.edu
+:SETUP:
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [11pt]
+#+LATEX_HEADER: \usepackage{amsfonts}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage[shortlabels]{enumitem}
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \usepackage[top=0.5in,margin=0.8in,includehead]{geometry}
+#+LATEX_HEADER: \usepackage{lastpage}
+#+LATEX_HEADER: \usepackage[small]{titlesec}
+#+LATEX_HEADER: \hypersetup{colorlinks=true,allcolors=blue}
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhf{}
+#+LATEX_HEADER: \lhead{$1, \textbf{$2} --- Page \thepage\ of \pageref*{LastPage}}
+#+LATEX_HEADER: \rhead{Christopher Paplham \href{mailto:cpaplham@uci.edu}{(cpaplham@uci.edu)}}
+#+LATEX: \titlespacing{\section}{0pt}{*4}{*1}
+#+LATEX: \titlespacing{\subsection}{0pt}{*2}{*0.75}
+#+LATEX: \titlespacing{\subsubsection}{0pt}{*1.5}{*0.5}
+#+LATEX: \setlength{\parindent}{0pt}
+#+OPTIONS: author:nil date:nil num:nil title:nil toc:nil
+:END:
+
+* 
