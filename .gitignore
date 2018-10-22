@@ -1,2 +1,5 @@
 /zsh/.zshenv-private
 /zsh/.zshrc-private
+emacs/.emacs.d/auto-save-list/
+emacs/.emacs.d/elpa/
+emacs/.emacs.d/irony/
