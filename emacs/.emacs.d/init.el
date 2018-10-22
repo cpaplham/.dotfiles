@@ -118,7 +118,11 @@
 (use-package flycheck
   :config
   (global-flycheck-mode)
-  (setq flycheck-mode-line-prefix "ƒ"))
+  (setq flycheck-mode-line-prefix "ƒ")
+  (add-hook 'c++-mode-hook
+            (lambda ()
+              (setq flycheck-gcc-language-standard "c++11")
+              (setq flycheck-clang-language-standard "c++11"))))
 
 (use-package free-keys
   :defer t)
