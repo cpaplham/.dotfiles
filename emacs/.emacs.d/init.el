@@ -201,6 +201,13 @@
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
+(use-package slime
+  :defer t
+  :config
+  (setq inferior-lisp-program (executable-find "sbcl")
+        slime-contribs '(slime-fancy))
+  (slime-setup))
+
 (use-package tex
   :defer t
   :ensure auctex)
