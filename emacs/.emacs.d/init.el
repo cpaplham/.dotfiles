@@ -97,6 +97,7 @@
                                emacs-lisp-mode
                                lisp-interaction-mode
                                python-mode))
+  (company-tng-configure-default)
   (setq-default company-dabbrev-downcase 0
                 company-idle-delay 0.5
                 company-minimum-prefix-length 2
