@@ -34,6 +34,7 @@
               make-backup-files nil
               mouse-wheel-progressive-speed nil
               ring-bell-function 'ignore
+              shell-file-name "/bin/sh"
               show-paren-delay 0)
 
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -48,6 +49,19 @@
               "Clear the scrollback contents (regardless of SCROLLBACK)."
               (declare-function eshell/clear-scrollback "esh-mode")
               (eshell/clear-scrollback))))
+
+(defun zsh ()
+  "Run zsh inside `ansi-term'."
+  (interactive)
+  (ansi-term (executable-find "/bin/zsh")))
+
+(eval-and-compile
+  (defun opam-load-path ()
+    "Get the load path for Emacs modules installed with opam (for OCaml)."
+    (when (executable-find "opam")
+      (let ((opam-dir (car (process-lines "opam" "config" "var" "share"))))
+        (list (expand-file-name "emacs/site-lisp" opam-dir))))))
+
 
 (setq custom-file (make-temp-file "emacs" nil ".el"))
 (load custom-file t)
@@ -169,6 +183,18 @@
   :config
   (ivy-mode t))
 
+(use-package merlin
+  :after (tuareg)
+  :load-path (lambda () (opam-load-path))
+  :config
+  (add-hook 'tuareg-mode-hook 'merlin-mode t))
+
+(use-package merlin-company
+  :after (merlin)
+  :load-path (lambda () (opam-load-path))
+  :config
+  (add-to-list 'company-global-modes 'tuareg-mode))
+
 (use-package neotree
   :defer t
   :config
@@ -177,6 +203,10 @@
                       :keymaps 'neotree-mode-map
                       "RET" 'neotree-enter
                       "TAB" 'neotree-quick-look))
+
+(use-package ocp-indent
+  :after (tuareg)
+  :load-path (lambda () (opam-load-path)))
 
 (use-package org
   :defer t
@@ -211,6 +241,10 @@
 (use-package tex
   :defer t
   :ensure auctex)
+
+(use-package tuareg
+  :after (company)
+  :defer t)
 
 (use-package undo-tree
   :diminish undo-tree-mode
