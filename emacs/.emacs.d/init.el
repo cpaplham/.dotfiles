@@ -213,11 +213,18 @@
   :defer t
   :ensure org-plus-contrib
   :config
-  (setq org-adapt-indentation t
-        org-edit-src-content-indentation 2
-        org-highlight-latex-and-related '(latex script)
-        org-list-allow-alphabetical t
-        org-src-tab-acts-natively t)
+  (with-no-warnings
+    (setq org-adapt-indentation t
+          org-agenda-files (list (expand-file-name "~/.emacs.d/agenda/"))
+          org-agenda-span 10
+          org-agenda-start-on-weekday nil
+          org-catch-invisible-edits 'smart
+          org-edit-src-content-indentation 2
+          org-highlight-latex-and-related '(latex script)
+          org-list-allow-alphabetical t
+          org-log-done 'time
+          org-src-tab-acts-natively t
+          org-todo-keywords '((sequence "TODO" "INCOMPLETE" "|" "DONE"))))
   (when (string= window-system "mac")
     (setq org-preview-latex-default-process 'dvisvgm))
   (org-babel-do-load-languages 'org-babel-load-languages
